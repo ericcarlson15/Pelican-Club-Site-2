@@ -1,11 +1,10 @@
-import { Handler } from "@netlify/functions";
+import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2023-10-16' as any,
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+  apiVersion: '2023-10-16',
 });
 
-// REPLACE THESE WITH YOUR ACTUAL STRIPE PRICE IDs FROM YOUR DASHBOARD
 const PRICE_MAP: Record<string, string> = {
   tee: 'price_1TW63FLSPqUvmV0oKyrsGiPU',
   tote: 'price_1TW64xLSPqUvmV0oASdvtfyp',
@@ -13,16 +12,20 @@ const PRICE_MAP: Record<string, string> = {
 };
 
 export const handler: Handler = async (event) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   try {
-    const { itemId, size, quantity } = JSON.parse(event.body || "{}");
+    const { itemId, size, quantity } = JSON.parse(event.body || '{}');
 
     const priceId = PRICE_MAP[itemId];
+
     if (!priceId) {
-      return { statusCode: 400, body: JSON.stringify({ message: "Invalid Item ID" }) };
+      return { 
+        statusCode: 400, 
+        body: JSON.stringify({ error: 'Invalid Item ID or product not configured.' }) 
+      };
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -38,17 +41,18 @@ export const handler: Handler = async (event) => {
         size: size || 'N/A',
         itemId: itemId
       },
-      return_url: `${event.headers.origin}/return?session_id={CHECKOUT_SESSION_ID}`,
+      // Uses the current site URL for the return path
+      return_url: `${event.headers.origin || process.env.URL || 'http://localhost:8888'}/return?session_id={CHECKOUT_SESSION_ID}`,
     });
 
     return {
       statusCode: 200,
       body: JSON.stringify({ clientSecret: session.client_secret }),
     };
-  } catch (err: any) {
+  } catch (error: any) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: err.message }),
+      body: JSON.stringify({ error: error.message }),
     };
   }
 };
