@@ -6,9 +6,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 });
 
 const PRICE_MAP: Record<string, string> = {
-  tee: 'price_1TW63FLSPqUvmV0oKyrsGiPU',
-  tote: 'price_1TW64xLSPqUvmV0oASdvtfyp',
-  poster: 'price_1TW67PLSPqUvmV0orxvjiU6s',
+  tee: 'price_1TW63FLSPqUvmV0oKyrsGiPU',    // Pelican Club Tee
+  tote: 'price_1TW64xLSPqUvmV0oASdvtfyp',   // Pelican Club Tote
+  poster: 'price_1TW67PLSPqUvmV0orxvjiU6s', // Pelican Club Poster
 };
 
 export const handler: Handler = async (event) => {
@@ -19,7 +19,7 @@ export const handler: Handler = async (event) => {
   try {
     const { itemId, size, quantity } = JSON.parse(event.body || '{}');
 
-    const priceId = PRICE_MAP[itemId];
+    const priceId = PRICE_MAP[itemId as keyof typeof PRICE_MAP];
 
     if (!priceId) {
       return { 
@@ -36,13 +36,15 @@ export const handler: Handler = async (event) => {
           quantity: quantity || 1,
         },
       ],
+      payment_method_types: ['card'],
       mode: 'payment',
       metadata: {
         size: size || 'N/A',
-        itemId: itemId
+        itemId: itemId,
+        quantity: (quantity || 1).toString()
       },
       // Uses the current site URL for the return path
-      return_url: `${event.headers.origin || process.env.URL || 'http://localhost:8888'}/return?session_id={CHECKOUT_SESSION_ID}`,
+      return_url: `${event.headers.origin || process.env.URL || 'http://localhost:8888'}/return?session_id={CHECKOUT_SESSION_ID}`
     });
 
     return {
