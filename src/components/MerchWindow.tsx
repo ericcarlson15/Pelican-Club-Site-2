@@ -120,9 +120,9 @@ export function MerchWindow() {
           </p>
         </div>
         
-        <div className="w-full bg-gray-50 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div className="w-full max-w-xs bg-gray-50 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
           <p className="text-[10px] uppercase font-bold text-gray-500 mb-1">Stripe Order Reference</p>
-          <p className="text-[10px] font-mono break-all select-all">{successSessionId}</p>
+          <p className="text-[9px] font-mono break-all select-all leading-tight">{successSessionId}</p>
         </div>
 
         <button 
