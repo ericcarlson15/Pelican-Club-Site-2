@@ -19,12 +19,14 @@ export const handler: Handler = async (event) => {
   try {
     const { itemId, size, quantity } = JSON.parse(event.body || '{}');
 
+    console.log(`Creating session for item: ${itemId}, size: ${size}, qty: ${quantity}`);
+
     const priceId = PRICE_MAP[itemId as keyof typeof PRICE_MAP];
 
     if (!priceId) {
       return { 
         statusCode: 400, 
-        body: JSON.stringify({ error: 'Invalid Item ID or product not configured.' }) 
+        body: JSON.stringify({ error: `Price ID for '${itemId}' is not configured correctly on the server.` }) 
       };
     }
 
