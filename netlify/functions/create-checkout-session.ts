@@ -6,9 +6,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 });
 
 const PRICE_MAP: Record<string, string> = {
-  tee: 'price_1TW63FLSPqUvmV0oKyrsGiPU',    // Pelican Club Tee
-  tote: 'price_1TW64xLSPqUvmV0oASdvtfyp',   // Pelican Club Tote
-  poster: 'price_1TW67PLSPqUvmV0orxvjiU6s', // Pelican Club Poster
+  tee: 'price_1TYVh0LSPqUvmV0oZmCvsxRU',    // Pelican Club Tee
+  tote: 'price_1TYVhkLSPqUvmV0oa185Br1S',   // Pelican Club Tote
+  poster: 'price_1TYViULSPqUvmV0omJdPKlyz', // Pelican Club Poster
 };
 
 export const handler: Handler = async (event) => {
@@ -23,10 +23,12 @@ export const handler: Handler = async (event) => {
 
     const priceId = PRICE_MAP[itemId as keyof typeof PRICE_MAP];
 
-    if (!priceId) {
+    // Sanity check to ensure we aren't sending empty or placeholder IDs to Stripe
+    if (!priceId || priceId.includes('YOUR_PRICE_ID')) {
+      console.error(`Invalid Price ID for item: ${itemId}`);
       return { 
         statusCode: 400, 
-        body: JSON.stringify({ error: `Price ID for '${itemId}' is not configured correctly on the server.` }) 
+        body: JSON.stringify({ error: `Configuration Error: Price ID for '${itemId}' is missing or invalid.` }) 
       };
     }
 
