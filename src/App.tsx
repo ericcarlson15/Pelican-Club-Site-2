@@ -51,8 +51,41 @@ useEffect(() => {
 
   // Open initial windows on load
   useEffect(() => {
-    if (!isMobile && windows.length === 0) {
-      // Open Discover Pelican Club
+    // If we're on mobile, the MobileView component handles its own layout
+    if (isMobile) return; 
+    
+    // Only run this initialization if no windows are open yet
+    if (windows.length > 0) return; 
+
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    
+    console.log('App initialization - Session ID found:', sessionId);
+
+    if (sessionId) {
+      // If returning from a purchase, prioritize the Merch window
+      setWindows([
+        { 
+          id: 1, 
+          title: 'Merch', 
+          content: '', 
+          isCustomContent: true, 
+          zIndex: 1000 
+        },
+        { 
+          id: 2, 
+          title: 'Pelican Club Player', 
+          content: '', 
+          isAudioPlayer: true, 
+          zIndex: 1001 
+        }
+      ]);
+      setNextId(3);
+      setNextZIndex(1002);
+      setActiveWindowId(1);
+      setWelcomeDismissed(true);
+    } else {
+      // Default initial windows
       setWindows([
         { 
           id: 1, 
@@ -74,7 +107,7 @@ useEffect(() => {
       setActiveWindowId(2);
       setWelcomeDismissed(true);
     }
-  }, [isMobile]);
+  }, [isMobile, windows.length, welcomeDismissed]);
 
   if (isMobile) {
     return <MobileView />;
