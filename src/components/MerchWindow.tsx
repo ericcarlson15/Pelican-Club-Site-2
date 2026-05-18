@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import toteImage from '../assets/tote1.jpg';
 import teeImage from '../assets/tee1.jpg';
 import posterImage from '../assets/poster1.jpg';
@@ -50,6 +50,15 @@ export function MerchWindow() {
   const [selectedQuantities, setSelectedQuantities] = useState<Record<string, number>>({
     tee: 1, tote: 1, poster: 1
   });
+  const [successSessionId, setSuccessSessionId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get('session_id');
+    if (sessionId) {
+      setSuccessSessionId(sessionId);
+    }
+  }, []);
 
   const handleBuy = async (itemId: string) => {
     try {
@@ -97,6 +106,40 @@ export function MerchWindow() {
       setLoadingItem(null);
     }
   };
+
+  if (successSessionId) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full space-y-6 p-8 text-center bg-white border-2 border-black shadow-[inset_0_0_10px_rgba(0,0,0,0.05)]">
+        <div className="text-4xl animate-bounce">🌴</div>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-bold italic" style={{ fontFamily: 'Garamond, serif' }}>
+            You've made a successful purchase!
+          </h2>
+          <p className="text-sm italic opacity-80">
+            Thanks for supporting Pelican Club. Keep an eye on your email for shipping updates.
+          </p>
+        </div>
+        
+        <div className="w-full bg-gray-50 border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <p className="text-[10px] uppercase font-bold text-gray-500 mb-1">Stripe Order Reference</p>
+          <p className="text-[10px] font-mono break-all select-all">{successSessionId}</p>
+        </div>
+
+        <button 
+          onClick={() => {
+            // Clean up URL parameters without reloading the page
+            const url = new URL(window.location.href);
+            url.searchParams.delete('session_id');
+            window.history.replaceState({}, '', url.pathname);
+            setSuccessSessionId(null);
+          }}
+          className="px-8 py-2 border-2 border-black bg-[#FFB6C1] text-black font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#FFC0CB] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
+        >
+          Return to Shop
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full space-y-4 relative">

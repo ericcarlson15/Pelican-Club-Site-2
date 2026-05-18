@@ -48,7 +48,7 @@ export const handler: Handler = async (event) => {
         quantity: (quantity || 1).toString()
       },
       // Uses the current site URL for the return path
-      return_url: `${event.headers.origin || process.env.URL || 'http://localhost:8888'}/return?session_id={CHECKOUT_SESSION_ID}`
+      return_url: `${event.headers.origin || process.env.URL || 'http://localhost:8888'}/?session_id={CHECKOUT_SESSION_ID}`
     });
 
     return {
