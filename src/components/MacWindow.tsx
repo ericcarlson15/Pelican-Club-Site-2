@@ -7,6 +7,7 @@ interface MacWindowProps {
   initialY?: number;
   width?: number;
   height?: number;
+  zIndex?: number;
   onClose?: () => void;
 }
 
@@ -17,6 +18,7 @@ export function MacWindow({
   initialY = 100,
   width = 400,
   height = 300,
+  zIndex,
   onClose
 }: MacWindowProps) {
   // Constrain initial position to viewport - be more lenient with bounds
@@ -77,6 +79,7 @@ export function MacWindow({
         top: position.y,
         width: `${width}px`,
         height: `${height}px`,
+        zIndex,
       }}
     >
       <div

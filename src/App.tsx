@@ -66,17 +66,17 @@ useEffect(() => {
       // If returning from a purchase, prioritize the Merch window
       setWindows([
         { 
-          id: 1, 
-          title: 'Merch', 
-          content: '', 
-          isCustomContent: true, 
-          zIndex: 1000 
-        },
-        { 
           id: 2, 
           title: 'Pelican Club Player', 
           content: '', 
           isAudioPlayer: true, 
+          zIndex: 1000 
+        },
+        { 
+          id: 1, 
+          title: 'Merch', 
+          content: '', 
+          isCustomContent: true, 
           zIndex: 1001 
         }
       ]);
@@ -289,13 +289,14 @@ The root of it all is fantasy, expectation, and desire, pulling imagery from Vap
           return (
             <div 
               key={window.id}
-              style={{ zIndex: window.zIndex }}
+              onMouseDown={() => bringToFront(window.id)}
               onClick={() => bringToFront(window.id)}
             >
               <MacWindow
                 title={window.title}
                 initialX={position.x}
                 initialY={position.y}
+                zIndex={window.zIndex}
                 width={
                   window.title === 'Videos' ? 600 : 
                   window.title === 'Pelican Club Player' ? 420 : 

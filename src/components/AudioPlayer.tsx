@@ -38,8 +38,40 @@ export function AudioPlayer() {
   const [volume, setVolume] = useState(70);
   const [error, setError] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const hasTriedAutoplayRef = useRef(false);
 
   const track = playlist[currentTrack];
+
+  useEffect(() => {
+    const tryAutoplay = async () => {
+      if (!audioRef.current || hasTriedAutoplayRef.current) return;
+
+      hasTriedAutoplayRef.current = true;
+      try {
+        setError(null);
+        await audioRef.current.play();
+        setIsPlaying(true);
+      } catch {
+        setIsPlaying(false);
+      }
+    };
+
+    const retryAutoplayAfterInteraction = () => {
+      hasTriedAutoplayRef.current = false;
+      tryAutoplay();
+      window.removeEventListener('pointerdown', retryAutoplayAfterInteraction);
+      window.removeEventListener('keydown', retryAutoplayAfterInteraction);
+    };
+
+    tryAutoplay();
+    window.addEventListener('pointerdown', retryAutoplayAfterInteraction);
+    window.addEventListener('keydown', retryAutoplayAfterInteraction);
+
+    return () => {
+      window.removeEventListener('pointerdown', retryAutoplayAfterInteraction);
+      window.removeEventListener('keydown', retryAutoplayAfterInteraction);
+    };
+  }, []);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -141,6 +173,7 @@ export function AudioPlayer() {
       <audio
         ref={audioRef}
         src={track.url}
+        autoPlay
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={handleEnded}
