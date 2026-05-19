@@ -11,6 +11,12 @@ const PRICE_MAP: Record<string, string> = {
   poster: 'price_1TYViULSPqUvmV0omJdPKlyz', // Pelican Club Poster
 };
 
+const ITEM_NAMES: Record<string, string> = {
+  tee: 'Pelican Club Tee',
+  tote: 'Pelican Club Tote',
+  poster: 'Pelican Club Poster',
+};
+
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -42,9 +48,16 @@ export const handler: Handler = async (event) => {
       ],
       payment_method_types: ['card'],
       mode: 'payment',
+      shipping_address_collection: {
+        allowed_countries: ['US'],
+      },
+      phone_number_collection: {
+        enabled: true,
+      },
       metadata: {
         size: size || 'N/A',
         itemId: itemId,
+        itemName: ITEM_NAMES[itemId] || itemId,
         quantity: (quantity || 1).toString()
       },
       // Uses the current site URL for the return path
