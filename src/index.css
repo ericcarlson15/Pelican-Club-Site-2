@@ -1179,6 +1179,178 @@ html {
   background-image: repeating-linear-gradient(45deg, #0000, #0000 3px, #ffb6c126 3px 6px), repeating-linear-gradient(-45deg, #0000, #0000 3px, #ffc0cb1f 3px 6px), radial-gradient(circle at 20%, #00000005 0%, #0000 50%), radial-gradient(circle at 80% 80%, #00000005 0%, #0000 50%), radial-gradient(circle at 40% 20%, #00000004 0%, #0000 30%), radial-gradient(circle at 90% 10%, #00000005 0%, #0000 40%), radial-gradient(circle at 60% 70%, #00000004 0%, #0000 35%), radial-gradient(circle at 10% 90%, #00000005 0%, #0000 45%);
 }
 
+.wallpaper-bg {
+  background-color: #f5efe7;
+  background-size: auto;
+}
+
+.wallpaper-marble,
+.wallpaper-preview-marble {
+  background-color: #f5efe7;
+  background-image: repeating-linear-gradient(45deg, #0000, #0000 3px, #ffb6c126 3px 6px), repeating-linear-gradient(-45deg, #0000, #0000 3px, #ffc0cb1f 3px 6px), radial-gradient(circle at 20%, #00000005 0%, #0000 50%), radial-gradient(circle at 80% 80%, #00000005 0%, #0000 50%), radial-gradient(circle at 40% 20%, #00000004 0%, #0000 30%), radial-gradient(circle at 90% 10%, #00000005 0%, #0000 40%), radial-gradient(circle at 60% 70%, #00000004 0%, #0000 35%), radial-gradient(circle at 10% 90%, #00000005 0%, #0000 45%);
+}
+
+.wallpaper-pool,
+.wallpaper-preview-pool {
+  background-color: #c7f0f2;
+  background-image: linear-gradient(#ffffffa6 2px, #0000 2px), linear-gradient(90deg, #ffffffa6 2px, #0000 2px), linear-gradient(135deg, #ffb6c138 0 25%, #0000 25% 50%, #ffb6c138 50% 75%, #0000 75%);
+  background-size: 42px 42px, 42px 42px, 84px 84px;
+}
+
+.wallpaper-sunset,
+.wallpaper-preview-sunset {
+  background-color: #ffe0a6;
+  background-image: repeating-linear-gradient(0deg, #ff7e7938 0 6px, #0000 6px 18px), repeating-linear-gradient(90deg, #9ac5ee47 0 10px, #0000 10px 34px), linear-gradient(135deg, #ffb6c18c, #d4b5ff47);
+}
+
+.wallpaper-night,
+.wallpaper-preview-fabric {
+  background-color: #123c88;
+  background-size: cover;
+  background-position: center;
+}
+
+.wallpaper-preview-screen {
+  position: relative;
+  height: 116px;
+  overflow: hidden;
+  border: 2px solid #000;
+  background-size: cover;
+  background-position: center;
+}
+
+.wallpaper-preview-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 5px;
+  border-bottom: 2px solid #000;
+  background: #fffef9;
+}
+
+.wallpaper-preview-menu span {
+  display: block;
+  width: 22px;
+  height: 5px;
+  border: 1px solid #000;
+  background: #ffb6c1;
+}
+
+.wallpaper-preview-menu span + span {
+  width: 34px;
+  background: #b4d7ff;
+}
+
+.wallpaper-preview-window {
+  position: absolute;
+  border: 2px solid #000;
+  background: #fffef9;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.wallpaper-preview-window div {
+  height: 9px;
+  border-bottom: 2px solid #000;
+  background: repeating-linear-gradient(90deg, #0000 0 4px, #000 4px 5px);
+}
+
+.wallpaper-preview-window p {
+  height: 6px;
+  margin: 6px 8px 0;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.wallpaper-preview-window-main {
+  left: 14px;
+  top: 28px;
+  width: 76px;
+  height: 54px;
+}
+
+.wallpaper-preview-window-small {
+  right: 12px;
+  top: 42px;
+  width: 48px;
+  height: 38px;
+}
+
+.wallpaper-preview-icons {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.wallpaper-preview-icons i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #000;
+  background: #d4b5ff;
+  box-shadow: 2px 2px 0 #000;
+}
+
+.desktop-icon-stack {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 1800;
+  display: flex;
+  flex-direction: column;
+  width: 84px;
+  max-height: calc(100vh - 32px);
+  transform: translateY(-50%);
+  border: 3px solid #000;
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+  background: #fffef9;
+  box-shadow: -5px 5px 0 #000;
+  overflow: hidden;
+}
+
+.desktop-icon-tile {
+  width: 84px;
+  min-height: 74px;
+  padding: 6px 4px;
+  border: 0;
+  border-bottom: 3px solid #000;
+  background: #fffef9;
+  box-shadow: none;
+  transform-origin: right center;
+}
+
+.desktop-icon-tile:last-child {
+  border-bottom: 0;
+}
+
+.desktop-icon-art {
+  border: 1px solid transparent;
+}
+
+.desktop-icon-art svg,
+.desktop-icon-art img {
+  max-width: 46px;
+  max-height: 46px;
+  filter: drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.75)) drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.25));
+}
+
+.desktop-icon-label {
+  font-family: Garamond, serif;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.05;
+  text-shadow: 1px 1px 0 #fff;
+}
+
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;

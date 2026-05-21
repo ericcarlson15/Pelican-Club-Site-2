@@ -3,9 +3,10 @@ import sodaCanIcon from 'figma:asset/bdacbb8efdcfaf864d9d40a0cc702a4444c33bf4.pn
 interface DateTabProps {
   onAboutClick: () => void;
   onMailingListClick: () => void;
+  onWallpaperClick: () => void;
 }
 
-export function DateTab({ onAboutClick, onMailingListClick }: DateTabProps) {
+export function DateTab({ onAboutClick, onMailingListClick, onWallpaperClick }: DateTabProps) {
   const date = new Date();
   const options: Intl.DateTimeFormatOptions = { 
     weekday: 'long', 
@@ -44,6 +45,18 @@ export function DateTab({ onAboutClick, onMailingListClick }: DateTabProps) {
           WebkitFontSmoothing: 'none',
           MozOsxFontSmoothing: 'grayscale',
         }}>Join The Mailing List</span>
+      </button>
+      <button 
+        className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] px-4 py-3 hover:bg-gray-100 transition-colors flex items-center h-[64px]"
+        onClick={onWallpaperClick}
+      >
+        <span className="text-sm italic" style={{ 
+          fontFamily: 'Garamond, serif',
+          fontWeight: 600,
+          imageRendering: 'pixelated',
+          WebkitFontSmoothing: 'none',
+          MozOsxFontSmoothing: 'grayscale',
+        }}>Wallpaper</span>
       </button>
     </div>
   );

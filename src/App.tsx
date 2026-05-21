@@ -15,7 +15,18 @@ import pelicanMemberImageBlue from 'figma:asset/f1a5abaebda838b0ec877b5e31ddddda
 import pelicanMemberImagePink from 'figma:asset/579de5ffd535f61b758f2b36fe174e0b7a68f4e2.png';
 import pelicanOSLogo from 'figma:asset/8cd4d39790de8d33778d9d345d9c0bba09b12f74.png';
 import sodaCanIcon from 'figma:asset/bdacbb8efdcfaf864d9d40a0cc702a4444c33bf4.png';
+import blueFabricWallpaper from './assets/blue-fabric-wallpaper.jpg';
+import retroPixelCd from './assets/retropixelcd-transparent.png';
 import { MerchWindow } from './components/MerchWindow';
+
+const wallpaperOptions = [
+  { id: 'marble', name: 'Club Marble', previewClass: 'wallpaper-preview-marble' },
+  { id: 'pool', name: 'Pool Grid', previewClass: 'wallpaper-preview-pool' },
+  { id: 'sunset', name: 'Sunset Tile', previewClass: 'wallpaper-preview-sunset' },
+  { id: 'night', name: 'Blue Fabric', previewClass: 'wallpaper-preview-fabric', image: blueFabricWallpaper },
+] as const;
+
+type WallpaperId = typeof wallpaperOptions[number]['id'];
 
 export default function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -24,6 +35,10 @@ export default function App() {
   const [nextZIndex, setNextZIndex] = useState(1000);
   const [activeWindowId, setActiveWindowId] = useState<number | null>(null);
   const [welcomeDismissed, setWelcomeDismissed] = useState(false);
+  const [wallpaperId, setWallpaperId] = useState<WallpaperId>(() => {
+    const savedWallpaper = localStorage.getItem('pelican-wallpaper') as WallpaperId | null;
+    return wallpaperOptions.some(option => option.id === savedWallpaper) ? savedWallpaper : 'marble';
+  });
 
   useEffect(() => {
     const checkMobile = () => {
@@ -124,6 +139,7 @@ useEffect(() => {
     'Videos': { x: 180, y: 120 },
     'About PelicanClubOS': { x: 160, y: 120 },
     'Join The Mailing List': { x: 140, y: 150 },
+    'Wallpaper': { x: 180, y: 160 },
     'Merch': { x: 220, y: 140 }
   };
 
@@ -193,8 +209,21 @@ useEffect(() => {
     setNextZIndex(prevZ => prevZ + 1);
   };
 
+  const changeWallpaper = (id: WallpaperId) => {
+    setWallpaperId(id);
+    localStorage.setItem('pelican-wallpaper', id);
+  };
+
+  const selectedWallpaper = wallpaperOptions.find(option => option.id === wallpaperId) || wallpaperOptions[0];
+  const wallpaperStyle = selectedWallpaper.image
+    ? { backgroundImage: `url(${selectedWallpaper.image})` }
+    : undefined;
+
   return (
-    <div className="w-full h-screen flex flex-col marble-bg relative overflow-hidden">
+    <div
+      className={`w-full h-screen flex flex-col wallpaper-bg wallpaper-${wallpaperId} relative overflow-hidden`}
+      style={wallpaperStyle}
+    >
       {/* Date Tab */}
       <DateTab 
         onAboutClick={() => {
@@ -205,12 +234,16 @@ useEffect(() => {
           console.log('Opening Mailing List');
           openCustomWindow('Join The Mailing List');
         }}
+        onWallpaperClick={() => {
+          console.log('Opening Wallpaper');
+          openCustomWindow('Wallpaper');
+        }}
       />
       
       {/* Desktop Area */}
       <div className="flex-1 relative p-4">
         {/* Desktop Icons */}
-        <div className="flex flex-col gap-2 absolute top-4 right-4">
+        <div className="desktop-icon-stack">
           <DesktopIcon
             icon={<HardDriveIcon />}
             label="Pelican Club HD"
@@ -241,7 +274,7 @@ The root of it all is fantasy, expectation, and desire, pulling imagery from Vap
             }}
           />
           <DesktopIcon
-            icon={<MusicIcon />}
+            icon={<img src={retroPixelCd} alt="" className="w-14 h-14 object-contain" style={{ imageRendering: 'pixelated' }} />}
             label="Pelican Club Player"
             onDoubleClick={() => {
               console.log('Opening Audio Player');
@@ -303,6 +336,7 @@ The root of it all is fantasy, expectation, and desire, pulling imagery from Vap
                   window.title === 'Discover Pelican Club' ? 500 : 
                   window.title === 'About PelicanClubOS' ? 550 :
                   window.title === 'Join The Mailing List' ? 450 :
+                  window.title === 'Wallpaper' ? 460 :
                   window.title === 'Merch' ? 620 : 
                   450
                 }
@@ -311,6 +345,7 @@ The root of it all is fantasy, expectation, and desire, pulling imagery from Vap
                   window.title === 'Pelican Club Player' ? 650 : 
                   window.title === 'About PelicanClubOS' ? 700 :
                   window.title === 'Join The Mailing List' ? 500 :
+                  window.title === 'Wallpaper' ? 430 :
                   window.title === 'Merch' ? 620 :
                   350
                 }
@@ -324,6 +359,45 @@ The root of it all is fantasy, expectation, and desire, pulling imagery from Vap
               <AboutOS onJoinClick={() => openCustomWindow('Join The Mailing List')} />
             ) : window.isCustomContent && window.title === 'Join The Mailing List' ? (
               <MailchimpForm />
+            ) : window.isCustomContent && window.title === 'Wallpaper' ? (
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  {wallpaperOptions.map((option) => (
+                    <button
+                      key={option.id}
+                      onClick={() => changeWallpaper(option.id)}
+                      className={`border-2 border-black bg-white p-2 text-left shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transition-transform active:translate-x-[1px] active:translate-y-[1px] ${
+                        wallpaperId === option.id ? 'ring-4 ring-[#D4B5FF]' : 'hover:bg-gray-50'
+                      }`}
+                    >
+                      <div
+                        className={`wallpaper-preview-screen mb-2 ${option.previewClass}`}
+                        style={option.image ? { backgroundImage: `url(${option.image})` } : undefined}
+                      >
+                        <div className="wallpaper-preview-menu">
+                          <span />
+                          <span />
+                        </div>
+                        <div className="wallpaper-preview-window wallpaper-preview-window-main">
+                          <div />
+                          <p />
+                          <p />
+                        </div>
+                        <div className="wallpaper-preview-window wallpaper-preview-window-small">
+                          <div />
+                          <p />
+                        </div>
+                        <div className="wallpaper-preview-icons">
+                          <i />
+                          <i />
+                          <i />
+                        </div>
+                      </div>
+                      <div className="text-sm font-bold">{option.name}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
             ) : window.isCustomContent && window.title === 'Discover Pelican Club' ? (
               <div className="space-y-4">
                 <div className="flex justify-center mb-4">

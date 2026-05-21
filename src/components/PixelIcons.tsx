@@ -1,472 +1,100 @@
+const iconStyle = { shapeRendering: 'crispEdges' as const };
+
 export const HardDriveIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="hdGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FF6EC7" />
-        <stop offset="50%" stopColor="#A78BFA" />
-        <stop offset="100%" stopColor="#60A5FA" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art hard drive */}
-    {/* Bottom row */}
-    <rect x="12" y="32" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="20" y="32" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="24" y="32" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="28" y="32" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="32" y="32" width="4" height="4" fill="url(#hdGrad)"/>
-    {/* Second row */}
-    <rect x="8" y="28" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="12" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="16" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="20" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="32" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="28" width="4" height="4" fill="url(#hdGrad)"/>
-    {/* Third row - screen */}
-    <rect x="8" y="24" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="12" y="24" width="4" height="4" fill="#34D399"/>
-    <rect x="16" y="24" width="4" height="4" fill="#34D399"/>
-    <rect x="20" y="24" width="4" height="4" fill="#FCD34D"/>
-    <rect x="24" y="24" width="4" height="4" fill="#FCD34D"/>
-    <rect x="28" y="24" width="4" height="4" fill="#34D399"/>
-    <rect x="32" y="24" width="4" height="4" fill="#34D399"/>
-    <rect x="36" y="24" width="4" height="4" fill="url(#hdGrad)"/>
-    {/* Fourth row */}
-    <rect x="8" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="12" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="16" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="20" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="24" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="28" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="32" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="36" y="20" width="4" height="4" fill="url(#hdGrad)"/>
-    {/* Fifth row */}
-    <rect x="12" y="16" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="16" y="16" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="20" y="16" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="24" y="16" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="28" y="16" width="4" height="4" fill="url(#hdGrad)"/>
-    <rect x="32" y="16" width="4" height="4" fill="url(#hdGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <rect x="9" y="12" width="30" height="26" fill="#D8EEF6" stroke="#111" strokeWidth="2" />
+    <rect x="12" y="15" width="24" height="10" fill="#FFFDF4" stroke="#111" strokeWidth="2" />
+    <rect x="14" y="28" width="20" height="6" fill="#86D7D5" stroke="#111" strokeWidth="2" />
+    <rect x="28" y="30" width="3" height="2" fill="#FF7D8F" />
+    <rect x="14" y="16" width="10" height="2" fill="#B4D7FF" />
+    <rect x="31" y="16" width="3" height="3" fill="#9FE5A0" stroke="#111" />
+    <rect x="12" y="38" width="24" height="3" fill="#111" opacity=".22" />
   </svg>
 );
 
 export const FolderIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="folderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FBBF24" />
-        <stop offset="100%" stopColor="#F59E0B" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art folder */}
-    <rect x="16" y="16" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="20" y="16" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="16" y="20" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="20" y="20" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="24" y="20" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="28" y="20" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="32" y="20" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="12" y="24" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="16" y="24" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="20" y="24" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="24" y="24" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="28" y="24" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="32" y="24" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="36" y="24" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="12" y="28" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="16" y="28" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="20" y="28" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="24" y="28" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="28" y="28" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="32" y="28" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="36" y="28" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="12" y="32" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="20" y="32" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="24" y="32" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="28" y="32" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="32" y="32" width="4" height="4" fill="url(#folderGrad)"/>
-    <rect x="36" y="32" width="4" height="4" fill="url(#folderGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <path d="M8 17h12l4 4h16v18H8V17z" fill="#FFD66E" stroke="#111" strokeWidth="2" />
+    <path d="M8 23h32v16H8V23z" fill="#F6B84F" stroke="#111" strokeWidth="2" />
+    <path d="M12 26h24" stroke="#FFF6C9" strokeWidth="2" />
+    <rect x="13" y="39" width="25" height="3" fill="#111" opacity=".22" />
   </svg>
 );
 
 export const DocumentIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#60A5FA" />
-        <stop offset="100%" stopColor="#A78BFA" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art document */}
-    <rect x="16" y="8" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="8" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="24" y="8" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="16" y="12" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="12" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="24" y="12" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="28" y="12" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="16" y="16" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="16" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="24" y="16" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="28" y="16" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="16" y="20" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="20" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="16" y="24" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="24" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="16" y="28" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="28" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="32" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="24" y="32" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="28" y="32" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="16" y="36" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="20" y="36" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="24" y="36" width="4" height="4" fill="url(#docGrad)"/>
-    <rect x="28" y="36" width="4" height="4" fill="url(#docGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <path d="M14 7h16l6 7v27H14V7z" fill="#FFFDF4" stroke="#111" strokeWidth="2" />
+    <path d="M30 7v8h6" fill="#D4B5FF" stroke="#111" strokeWidth="2" />
+    <rect x="18" y="18" width="14" height="2" fill="#86D7D5" />
+    <rect x="18" y="24" width="12" height="2" fill="#FFB6C1" />
+    <rect x="18" y="30" width="15" height="2" fill="#B4D7FF" />
+    <rect x="17" y="38" width="20" height="3" fill="#111" opacity=".2" />
   </svg>
 );
 
 export const InstagramIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="instaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#F58529" />
-        <stop offset="30%" stopColor="#DD2A7B" />
-        <stop offset="70%" stopColor="#8134AF" />
-        <stop offset="100%" stopColor="#515BD4" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art Instagram camera */}
-    {/* Outer border */}
-    <rect x="8" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="12" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="16" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="20" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="24" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="28" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="32" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="36" y="12" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="8" y="16" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="36" y="16" width="4" height="4" fill="url(#instaGrad)"/>
-    {/* Camera lens */}
-    <rect x="8" y="20" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="16" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="20" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="20" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="8" y="24" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="16" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="20" y="24" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="24" y="24" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="28" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="32" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="24" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="8" y="28" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="16" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="20" y="28" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="24" y="28" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="28" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="28" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="8" y="32" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="20" y="32" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="32" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="32" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="32" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="8" y="36" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="36" y="36" width="4" height="4" fill="url(#instaGrad)"/>
-    {/* Bottom border */}
-    <rect x="8" y="40" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="12" y="40" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="16" y="40" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="20" y="40" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="24" y="40" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="28" y="40" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="32" y="40" width="4" height="4" fill="url(#instaGrad)"/>
-    <rect x="36" y="40" width="4" height="4" fill="url(#instaGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <rect x="10" y="10" width="28" height="28" fill="#F7B47C" stroke="#111" strokeWidth="2" />
+    <rect x="13" y="13" width="22" height="22" fill="#FFB6C1" stroke="#111" strokeWidth="2" />
+    <rect x="17" y="17" width="14" height="14" fill="#111" />
+    <rect x="19" y="19" width="10" height="10" fill="#B4D7FF" />
+    <rect x="22" y="22" width="4" height="4" fill="#FFFDF4" />
+    <rect x="30" y="16" width="3" height="3" fill="#FFFDF4" stroke="#111" />
+    <rect x="14" y="38" width="22" height="3" fill="#111" opacity=".22" />
   </svg>
 );
 
 export const PalmTreeIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="https://ia801003.us.archive.org/29/items/pelican-club-soda-pop-can-8_202510/pelican%20club%20soda%20pop%20can%208.png">
-    <defs>
-      <linearGradient id="palmFrondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FF6EC7" />
-        <stop offset="50%" stopColor="#FF8FA3" />
-        <stop offset="100%" stopColor="#FFA07A" />
-      </linearGradient>
-    </defs>
-    
-    {/* Simple pixelated palm tree - coral/pink fronds */}
-    {/* Trunk */}
-    <rect x="14" y="18" width="4" height="2" fill="#A0826D"/>
-    <rect x="14" y="20" width="4" height="2" fill="#8B6F47"/>
-    <rect x="14" y="22" width="4" height="2" fill="#A0826D"/>
-    <rect x="14" y="24" width="4" height="2" fill="#8B6F47"/>
-    <rect x="14" y="26" width="4" height="2" fill="#A0826D"/>
-    <rect x="14" y="28" width="4" height="2" fill="#8B6F47"/>
-    
-    {/* Left frond */}
-    <rect x="6" y="12" width="2" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="8" y="12" width="2" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="10" y="14" width="2" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="12" y="16" width="2" height="2" fill="url(#palmFrondGrad)"/>
-    
-    {/* Top frond */}
-    <rect x="14" y="6" width="4" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="14" y="8" width="4" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="14" y="10" width="4" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="14" y="12" width="4" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="14" y="14" width="4" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="14" y="16" width="4" height="2" fill="url(#palmFrondGrad)"/>
-    
-    {/* Right frond */}
-    <rect x="18" y="12" width="2" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="20" y="14" width="2" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="22" y="12" width="2" height="2" fill="url(#palmFrondGrad)"/>
-    <rect x="24" y="12" width="2" height="2" fill="url(#palmFrondGrad)"/>
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <rect x="14" y="14" width="4" height="16" fill="#A87043" stroke="#111" />
+    <path d="M16 13L5 10l6-4 5 4 5-5 6 5-11 3z" fill="#86D48A" stroke="#111" />
+    <rect x="13" y="17" width="6" height="2" fill="#D89E5A" />
   </svg>
 );
 
 export const VideoIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="videoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FF6EC7" />
-        <stop offset="50%" stopColor="#A78BFA" />
-        <stop offset="100%" stopColor="#60A5FA" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art video/TV screen */}
-    {/* Top border */}
-    <rect x="8" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="12" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="16" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="20" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="24" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="28" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="32" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="36" y="12" width="4" height="4" fill="url(#videoGrad)"/>
-    {/* Screen with play button */}
-    <rect x="8" y="16" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="12" y="16" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="16" y="16" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="20" y="16" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="16" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="16" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="32" y="16" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="16" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="8" y="20" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="12" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="16" y="20" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="20" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="32" y="20" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="20" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="8" y="24" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="12" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="16" y="24" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="20" y="24" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="24" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="32" y="24" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="24" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="8" y="28" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="12" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="16" y="28" width="4" height="4" fill="#FFFFFF"/>
-    <rect x="20" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="28" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="32" y="28" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="36" y="28" width="4" height="4" fill="url(#videoGrad)"/>
-    {/* Bottom border */}
-    <rect x="8" y="32" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="12" y="32" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="20" y="32" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="24" y="32" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="28" y="32" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="32" y="32" width="4" height="4" fill="url(#videoGrad)"/>
-    <rect x="36" y="32" width="4" height="4" fill="url(#videoGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <rect x="8" y="12" width="32" height="23" fill="#FFFDF4" stroke="#111" strokeWidth="2" />
+    <rect x="12" y="16" width="24" height="16" fill="#151827" stroke="#111" strokeWidth="2" />
+    <path d="M21 20v8l8-4-8-4z" fill="#FFB6C1" stroke="#FFFDF4" strokeWidth="2" />
+    <rect x="15" y="36" width="18" height="3" fill="#B4D7FF" stroke="#111" />
+    <rect x="12" y="39" width="24" height="3" fill="#111" opacity=".22" />
   </svg>
 );
 
 export const MusicIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="boomboxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FF6EC7" />
-        <stop offset="50%" stopColor="#EC4899" />
-        <stop offset="100%" stopColor="#DB2777" />
-      </linearGradient>
-      <linearGradient id="speakerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#60A5FA" />
-        <stop offset="100%" stopColor="#3B82F6" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art boombox */}
-    {/* Handle */}
-    <rect x="16" y="8" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="28" y="8" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="16" y="12" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="28" y="12" width="4" height="4" fill="url(#boomboxGrad)"/>
-    {/* Top row */}
-    <rect x="12" y="16" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="16" y="16" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="20" y="16" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="24" y="16" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="28" y="16" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="32" y="16" width="4" height="4" fill="url(#boomboxGrad)"/>
-    {/* Speaker row */}
-    <rect x="12" y="20" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="16" y="20" width="4" height="4" fill="url(#speakerGrad)"/>
-    <rect x="20" y="20" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="24" y="20" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="28" y="20" width="4" height="4" fill="url(#speakerGrad)"/>
-    <rect x="32" y="20" width="4" height="4" fill="url(#boomboxGrad)"/>
-    {/* Middle row */}
-    <rect x="12" y="24" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="16" y="24" width="4" height="4" fill="url(#speakerGrad)"/>
-    <rect x="20" y="24" width="4" height="4" fill="#FCD34D"/>
-    <rect x="24" y="24" width="4" height="4" fill="#34D399"/>
-    <rect x="28" y="24" width="4" height="4" fill="url(#speakerGrad)"/>
-    <rect x="32" y="24" width="4" height="4" fill="url(#boomboxGrad)"/>
-    {/* Speaker row 2 */}
-    <rect x="12" y="28" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="16" y="28" width="4" height="4" fill="url(#speakerGrad)"/>
-    <rect x="20" y="28" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="24" y="28" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="28" y="28" width="4" height="4" fill="url(#speakerGrad)"/>
-    <rect x="32" y="28" width="4" height="4" fill="url(#boomboxGrad)"/>
-    {/* Bottom row */}
-    <rect x="12" y="32" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="20" y="32" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="24" y="32" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="28" y="32" width="4" height="4" fill="url(#boomboxGrad)"/>
-    <rect x="32" y="32" width="4" height="4" fill="url(#boomboxGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <rect x="9" y="16" width="30" height="21" fill="#FFB6C1" stroke="#111" strokeWidth="2" />
+    <path d="M17 16v-5h14v5" stroke="#111" strokeWidth="2" />
+    <rect x="14" y="20" width="8" height="8" fill="#B4D7FF" stroke="#111" strokeWidth="2" />
+    <rect x="27" y="20" width="8" height="8" fill="#B4D7FF" stroke="#111" strokeWidth="2" />
+    <rect x="22" y="30" width="4" height="3" fill="#FFF07A" stroke="#111" />
+    <rect x="14" y="32" width="21" height="2" fill="#111" />
+    <rect x="12" y="38" width="25" height="3" fill="#111" opacity=".22" />
   </svg>
 );
 
 export const PelicanIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FF6EC7" />
-        <stop offset="30%" stopColor="#FFA07A" />
-        <stop offset="70%" stopColor="#FFD700" />
-        <stop offset="100%" stopColor="#FF6EC7" />
-      </linearGradient>
-      <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#60A5FA" />
-        <stop offset="100%" stopColor="#A78BFA" />
-      </linearGradient>
-      <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FFD700" />
-        <stop offset="100%" stopColor="#FFA07A" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art tropical vaporwave scene */}
-    {/* Sky/background */}
-    <rect x="8" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    <rect x="12" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    <rect x="16" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    <rect x="20" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    <rect x="24" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    <rect x="28" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    <rect x="32" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    <rect x="36" y="8" width="4" height="4" fill="url(#skyGrad)"/>
-    
-    {/* Sun */}
-    <rect x="32" y="12" width="4" height="4" fill="url(#sunGrad)"/>
-    <rect x="28" y="16" width="4" height="4" fill="url(#sunGrad)"/>
-    <rect x="32" y="16" width="4" height="4" fill="url(#sunGrad)"/>
-    <rect x="36" y="16" width="4" height="4" fill="url(#sunGrad)"/>
-    
-    {/* Palm tree */}
-    <rect x="12" y="12" width="4" height="4" fill="#34D399"/>
-    <rect x="16" y="12" width="4" height="4" fill="#34D399"/>
-    <rect x="8" y="16" width="4" height="4" fill="#34D399"/>
-    <rect x="12" y="16" width="4" height="4" fill="#34D399"/>
-    <rect x="16" y="16" width="4" height="4" fill="#34D399"/>
-    <rect x="20" y="16" width="4" height="4" fill="#34D399"/>
-    <rect x="12" y="20" width="4" height="4" fill="#D97706"/>
-    <rect x="12" y="24" width="4" height="4" fill="#D97706"/>
-    <rect x="12" y="28" width="4" height="4" fill="#D97706"/>
-    
-    {/* Water/waves */}
-    <rect x="8" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="12" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="20" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="24" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="28" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="32" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="36" y="32" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="8" y="36" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="12" y="36" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="16" y="36" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="20" y="36" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="24" y="36" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="28" y="36" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="32" y="36" width="4" height="4" fill="url(#waterGrad)"/>
-    <rect x="36" y="36" width="4" height="4" fill="url(#waterGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <rect x="8" y="8" width="32" height="32" fill="#B4D7FF" stroke="#111" strokeWidth="2" />
+    <rect x="8" y="27" width="32" height="13" fill="#86D7D5" stroke="#111" strokeWidth="2" />
+    <rect x="30" y="12" width="6" height="6" fill="#FFE66D" stroke="#111" />
+    <path d="M14 24h11l6 4-6 3H14v-7z" fill="#FFFDF4" stroke="#111" strokeWidth="2" />
+    <path d="M25 24h8l-6 4" fill="#F6B84F" stroke="#111" strokeWidth="2" />
+    <rect x="17" y="21" width="8" height="5" fill="#FFFDF4" stroke="#111" strokeWidth="2" />
+    <rect x="20" y="22" width="2" height="2" fill="#111" />
+    <rect x="10" y="33" width="7" height="2" fill="#FFFDF4" />
+    <rect x="21" y="34" width="9" height="2" fill="#FFFDF4" />
+    <rect x="12" y="40" width="27" height="3" fill="#111" opacity=".22" />
   </svg>
 );
 
 export const MerchIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#10B981" />
-        <stop offset="50%" stopColor="#059669" />
-        <stop offset="100%" stopColor="#047857" />
-      </linearGradient>
-      <linearGradient id="tagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FBBF24" />
-        <stop offset="100%" stopColor="#F59E0B" />
-      </linearGradient>
-    </defs>
-    {/* Pixel art t-shirt */}
-    {/* Shoulders */}
-    <rect x="12" y="16" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="16" y="16" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="28" y="16" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="32" y="16" width="4" height="4" fill="url(#shirtGrad)"/>
-    {/* Neck */}
-    <rect x="20" y="16" width="4" height="4" fill="#1F1F1F"/>
-    <rect x="24" y="16" width="4" height="4" fill="#1F1F1F"/>
-    {/* Body */}
-    <rect x="16" y="20" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="20" y="20" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="24" y="20" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="28" y="20" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="16" y="24" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="20" y="24" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="24" y="24" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="28" y="24" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="16" y="28" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="20" y="28" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="24" y="28" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="28" y="28" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="16" y="32" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="20" y="32" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="24" y="32" width="4" height="4" fill="url(#shirtGrad)"/>
-    <rect x="28" y="32" width="4" height="4" fill="url(#shirtGrad)"/>
-    {/* Price tag */}
-    <rect x="32" y="20" width="4" height="4" fill="url(#tagGrad)"/>
-    <rect x="36" y="24" width="4" height="4" fill="url(#tagGrad)"/>
-    <rect x="32" y="24" width="4" height="4" fill="url(#tagGrad)"/>
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style={iconStyle}>
+    <path d="M15 13h7l2 4 2-4h7l6 7-5 5-3-3v17H17V22l-3 3-5-5 6-7z" fill="#9FE5A0" stroke="#111" strokeWidth="2" />
+    <path d="M21 14h6l-3 5-3-5z" fill="#FFFDF4" stroke="#111" strokeWidth="2" />
+    <rect x="21" y="25" width="6" height="6" fill="#FFB6C1" stroke="#111" />
+    <rect x="30" y="21" width="6" height="5" fill="#FFD66E" stroke="#111" />
+    <rect x="15" y="39" width="21" height="3" fill="#111" opacity=".22" />
   </svg>
 );
