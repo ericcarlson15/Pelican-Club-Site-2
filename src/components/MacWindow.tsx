@@ -24,7 +24,7 @@ export function MacWindow({
   // Constrain initial position to viewport - be more lenient with bounds
   const constrainPosition = (x: number, y: number) => {
     const minX = 20;
-    const minY = 80; // Below date tab area
+    const minY = 42;
     const maxX = Math.max(minX, window.innerWidth - 250); // Leave at least 250px visible
     const maxY = Math.max(minY, window.innerHeight - 100); // Leave at least 100px visible
     

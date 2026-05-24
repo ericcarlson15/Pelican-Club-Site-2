@@ -16,7 +16,9 @@ import pelicanMemberImagePink from 'figma:asset/579de5ffd535f61b758f2b36fe174e0b
 import pelicanOSLogo from 'figma:asset/8cd4d39790de8d33778d9d345d9c0bba09b12f74.png';
 import sodaCanIcon from 'figma:asset/bdacbb8efdcfaf864d9d40a0cc702a4444c33bf4.png';
 import blueFabricWallpaper from './assets/blue-fabric-wallpaper.jpg';
+import classicMacPurpleWallpaper from './assets/classic-mac-purple-wallpaper.jpg';
 import retroPixelCd from './assets/retropixelcd-transparent.png';
+import softBlueWallpaper from './assets/soft-blue-wallpaper.jpg';
 import { MerchWindow } from './components/MerchWindow';
 
 const wallpaperOptions = [
@@ -24,6 +26,8 @@ const wallpaperOptions = [
   { id: 'pool', name: 'Pool Grid', previewClass: 'wallpaper-preview-pool' },
   { id: 'sunset', name: 'Sunset Tile', previewClass: 'wallpaper-preview-sunset' },
   { id: 'night', name: 'Blue Fabric', previewClass: 'wallpaper-preview-fabric', image: blueFabricWallpaper },
+  { id: 'classic', name: 'Classic Mac', previewClass: 'wallpaper-preview-classic', image: classicMacPurpleWallpaper, repeat: true },
+  { id: 'soft-blue', name: 'Soft Blue', previewClass: 'wallpaper-preview-soft-blue', image: softBlueWallpaper },
 ] as const;
 
 type WallpaperId = typeof wallpaperOptions[number]['id'];
@@ -216,7 +220,12 @@ useEffect(() => {
 
   const selectedWallpaper = wallpaperOptions.find(option => option.id === wallpaperId) || wallpaperOptions[0];
   const wallpaperStyle = selectedWallpaper.image
-    ? { backgroundImage: `url(${selectedWallpaper.image})` }
+    ? {
+        backgroundImage: `url(${selectedWallpaper.image})`,
+        backgroundRepeat: selectedWallpaper.repeat ? 'repeat' : 'no-repeat',
+        backgroundSize: selectedWallpaper.repeat ? '420px 420px' : 'cover',
+        backgroundPosition: 'center',
+      }
     : undefined;
 
   return (

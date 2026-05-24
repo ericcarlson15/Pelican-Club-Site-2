@@ -1210,6 +1210,20 @@ html {
   background-position: center;
 }
 
+.wallpaper-classic,
+.wallpaper-preview-classic {
+  background-color: #6965a1;
+  background-size: cover;
+  background-position: center;
+}
+
+.wallpaper-soft-blue,
+.wallpaper-preview-soft-blue {
+  background-color: #315075;
+  background-size: cover;
+  background-position: center;
+}
+
 .wallpaper-preview-screen {
   position: relative;
   height: 116px;
@@ -1349,6 +1363,59 @@ html {
   font-weight: 700;
   line-height: 1.05;
   text-shadow: 1px 1px 0 #fff;
+}
+
+.top-tab-strip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: stretch;
+  max-width: calc(100vw - 96px);
+  border: 3px solid #000;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 0 0 4px 0;
+  background: #fffef9;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.top-tab {
+  height: 38px;
+  border: 0;
+  border-right: 3px solid #000;
+  background: #fffef9;
+}
+
+.top-tab:last-child {
+  border-right: 0;
+}
+
+.top-tab-home {
+  width: 42px;
+  min-width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+
+.top-tab-home img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.4));
+}
+
+.top-tab-text {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.top-tab-text:hover {
+  background: #fff7cf;
 }
 
 @property --tw-space-y-reverse {
